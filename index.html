@@ -4,18 +4,44 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>THREAT//ZERO | One Tap. Zero Threats.</title>
+
+  <!-- External CSS -->
   <link rel="stylesheet" href="css/global.css" />
   <link rel="stylesheet" href="css/homepage.css" />
-  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Rajdhani:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet" />
+
+  <!-- AOS Animation -->
+  <script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js" defer></script>
+  <link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet" />
+
+  <!-- Header Scroll Logic -->
+  <script defer>
+    document.addEventListener('DOMContentLoaded', () => {
+      const header = document.querySelector('.site-header');
+      let lastScrollTop = 0;
+      window.addEventListener('scroll', () => {
+        const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+        if (scrollTop > lastScrollTop && scrollTop > 100) {
+          header.classList.add('header-minimized');
+        } else {
+          header.classList.remove('header-minimized');
+        }
+        lastScrollTop = scrollTop <= 0 ? 0 : scrollTop;
+      });
+    });
+  </script>
 </head>
 <body>
 
+<!-- Header -->
 <header class="site-header dark">
   <div class="container nav-container">
-    <img src="images/TZ.jpg" alt="THREAT//ZERO Logo" class="logo" style="height: 126px; filter: drop-shadow(0 0 4px rgba(255,255,255,0.6));">
-    <nav class="main-nav">
+    <a href="#" aria-label="THREAT//ZERO home">
+      <img src="images/TZ.jpg" alt="THREAT//ZERO Logo" class="logo">
+    </a>
+    <nav class="main-nav" role="navigation" aria-label="Primary Navigation">
       <ul>
         <li><a href="#">Home</a></li>
         <li><a href="otth-product.html">OTTH Product</a></li>
@@ -29,7 +55,7 @@
 </header>
 
 <!-- Hero Section -->
-<section class="hero-section" style="background: linear-gradient(135deg, #0a2463, #1e3a8a);">
+<section class="hero-section">
   <div class="container" data-aos="fade-up">
     <h1>One Tap. Zero Threats.</h1>
     <p>Revolutionary cybersecurity made simple.</p>
@@ -39,28 +65,28 @@
       <a href="#" class="btn-secondary">Watch Demo</a>
     </div>
     <div class="hero-animation" data-aos="zoom-in">
-      <img src="images/hero-smartphone.gif" alt="Threat Elimination Animation" style="max-width: 320px;">
+      <img src="images/hero-smartphone.gif" alt="Threat Elimination Animation" />
     </div>
   </div>
 </section>
 
 <!-- Value Proposition Section -->
-<section class="value-proposition" style="background-color: #f7f7ff;">
+<section class="value-proposition">
   <div class="container">
     <h2 data-aos="fade-down">Why THREAT//ZERO?</h2>
     <div class="value-grid">
       <div class="value-item" data-aos="fade-up" data-aos-delay="100">
-        <img src="images/icon-tap.png" alt="One Tap Simplicity">
+        <img src="images/icon-tap.png" alt="One Tap Simplicity" />
         <h3>One Tap Simplicity</h3>
         <p>Complex cybersecurity made as simple as a single tap.</p>
       </div>
       <div class="value-item" data-aos="fade-up" data-aos-delay="200">
-        <img src="images/icon-shield.png" alt="Zero Compromise">
+        <img src="images/icon-shield.png" alt="Zero Compromise" />
         <h3>Zero Compromise</h3>
         <p>Enterprise-grade protection without enterprise complexity.</p>
       </div>
       <div class="value-item" data-aos="fade-up" data-aos-delay="300">
-        <img src="images/icon-network.png" alt="Universal Access">
+        <img src="images/icon-network.png" alt="Universal Access" />
         <h3>Universal Access</h3>
         <p>From individuals to enterprises, everyone gets world-class security.</p>
       </div>
@@ -69,10 +95,9 @@
 </section>
 
 <!-- OTTH Product Showcase -->
-<section class="product-showcase" style="background-color: #ffffff;">
+<section class="product-showcase">
   <div class="container">
     <div class="product-columns">
-      <!-- Left Side: Textual Features -->
       <div class="product-content" data-aos="fade-right">
         <h2>Introducing OTTH by THREAT//ZERO</h2>
         <ul>
@@ -88,13 +113,12 @@
         </div>
       </div>
 
-      <!-- Right Side: Visual Demo -->
-      <div class="product-demo" data-aos="fade-left">
-        <div class="demo-frame">
-          <img src="images/otth-app-demo.png" alt="Mobile App Interface">
-          <div class="demo-overlay">
-            <p>One-tap Action Highlight</p>
-            <span class="pulse-circle"></span>
+      <div class="product-demo" data-aos="fade-left" aria-live="polite" aria-label="Launching Soon Notification">
+        <div class="demo-frame launch-soon-frame">
+          <div>
+            <h3>Launching Soon</h3>
+            <p>Stay tuned for the OTTH mobile app experience.</p>
+            <div class="countdown" aria-label="Countdown timer coming soon"></div>
           </div>
         </div>
       </div>
@@ -103,27 +127,27 @@
 </section>
 
 <!-- Technology Innovation Section -->
-<section class="tech-innovation" style="background-color: #0a2463; color: #f7f7ff;">
+<section class="tech-innovation">
   <div class="container">
     <h2 data-aos="fade-up">Cutting-Edge Technology Stack</h2>
-    <div class="tech-scroll">
+    <div class="tech-scroll" tabindex="0" aria-label="Technology cards scrollable section">
       <div class="tech-card" data-aos="zoom-in" data-aos-delay="100">
-        <img src="images/icon-ai.png" alt="AI/ML">
+        <img src="images/icon-ai.png" alt="AI/ML" />
         <h3>AI/ML Interface</h3>
         <p>Detects anomalies and zero-days before damage is done.</p>
       </div>
       <div class="tech-card" data-aos="zoom-in" data-aos-delay="200">
-        <img src="images/icon-blockchain.png" alt="Blockchain">
+        <img src="images/icon-blockchain.png" alt="Blockchain" />
         <h3>Blockchain Security</h3>
         <p>Immutable activity ledgers and decentralized auth.</p>
       </div>
       <div class="tech-card" data-aos="zoom-in" data-aos-delay="300">
-        <img src="images/icon-quantum.png" alt="Quantum Security">
+        <img src="images/icon-quantum.png" alt="Quantum Security" />
         <h3>Quantum-Ready Encryption</h3>
         <p>Protects your data today and tomorrow.</p>
       </div>
       <div class="tech-card" data-aos="zoom-in" data-aos-delay="400">
-        <img src="images/icon-ar.png" alt="AR Interface">
+        <img src="images/icon-ar.png" alt="AR Interface" />
         <h3>AR Security Layer</h3>
         <p>Empowers analysts with spatial awareness in real time.</p>
       </div>
@@ -135,14 +159,14 @@
 <section class="social-proof">
   <div class="container">
     <h2 data-aos="fade-down">Trusted by Organizations Worldwide</h2>
-    <div class="logo-carousel" data-aos="fade-up">
-      <img src="images/client1.png" alt="Client 1">
-      <img src="images/client2.png" alt="Client 2">
-      <img src="images/client3.png" alt="Client 3">
-      <img src="images/client4.png" alt="Client 4">
-      <img src="images/client5.png" alt="Client 5">
+    <div class="logo-carousel" data-aos="fade-up" role="list">
+      <img src="images/client1.png" alt="Client 1 Logo" role="listitem" />
+      <img src="images/client2.png" alt="Client 2 Logo" role="listitem" />
+      <img src="images/client3.png" alt="Client 3 Logo" role="listitem" />
+      <img src="images/client4.png" alt="Client 4 Logo" role="listitem" />
+      <img src="images/client5.png" alt="Client 5 Logo" role="listitem" />
     </div>
-    <blockquote class="highlight-testimonial" data-aos="fade-up" data-aos-delay="200">
+    <blockquote class="highlight-testimonial" data-aos="fade-up" data-aos-delay="200" tabindex="0">
       "THREAT//ZERO's OTTH platform transformed our security operations. What used to take hours now takes one tap."
       <span>- CTO, CyberNova</span>
     </blockquote>
@@ -150,7 +174,7 @@
 </section>
 
 <!-- Call-to-Action Section -->
-<section class="cta-section" style="background: linear-gradient(135deg, #0a2463, #1e3a8a); color: #f7f7ff;">
+<section class="cta-section">
   <div class="container" data-aos="zoom-in">
     <h2>Ready to Experience Zero Threats?</h2>
     <p>Join thousands who've simplified their cybersecurity with THREAT//ZERO OTTH.</p>
@@ -163,7 +187,7 @@
 </section>
 
 <!-- Footer -->
-<footer class="site-footer" style="background-color: #0a2463; color: #f7f7ff;">
+<footer class="site-footer">
   <div class="container footer-content">
     <div class="footer-col">
       <h3>THREAT//ZERO</h3>
@@ -192,6 +216,7 @@
   </div>
 </footer>
 
+<!-- AOS Init -->
 <script>
   AOS.init();
 </script>
